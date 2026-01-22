@@ -1,0 +1,343 @@
+/* Custom Styles for Synthetic Panels */
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0A0A0B;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse-ring {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+@keyframes countUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animation utilities */
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+.animate-slide-in-left {
+    animation: slideInLeft 0.5s ease-out forwards;
+}
+
+.animate-slide-in-right {
+    animation: slideInRight 0.5s ease-out forwards;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Delay utilities */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* Step content transitions */
+.step-content {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+}
+
+.step-content.active {
+    opacity: 1;
+    transform: translateY(0);
+    position: relative;
+    pointer-events: auto;
+}
+
+/* Step buttons */
+.step-btn {
+    transition: all 0.3s ease;
+}
+
+.step-btn.active {
+    background: #00D4AA;
+    color: #0A0A0B;
+    transform: scale(1.1);
+}
+
+.step-btn:not(.active):hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Progress bars */
+.step-progress {
+    transition: width 0.5s ease-out;
+}
+
+/* Persona card styles */
+.persona-card {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.4s ease-out;
+}
+
+.persona-card.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.persona-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 40px rgba(0, 212, 170, 0.1);
+}
+
+/* Upload zone */
+#upload-zone {
+    transition: all 0.3s ease;
+}
+
+#upload-zone:hover {
+    border-color: rgba(0, 212, 170, 0.5);
+    background: rgba(0, 212, 170, 0.05);
+}
+
+#upload-zone.dragging {
+    border-color: #00D4AA;
+    background: rgba(0, 212, 170, 0.1);
+    transform: scale(1.02);
+}
+
+/* Typing cursor */
+#cursor {
+    animation: blink 1s infinite;
+}
+
+/* Chat response streaming effect */
+.streaming-text {
+    overflow: hidden;
+    border-right: 2px solid #00D4AA;
+    animation: blink 1s infinite;
+}
+
+/* Number counter animation */
+.counter {
+    display: inline-block;
+}
+
+/* Gradient text */
+.gradient-text {
+    background: linear-gradient(135deg, #00D4AA 0%, #6366F1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Glass effect */
+.glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Button hover effects */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+/* Card hover lift */
+.card-lift {
+    transition: all 0.3s ease;
+}
+
+.card-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Intersection observer animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stats counter */
+.stat-number {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Mobile menu */
+@media (max-width: 768px) {
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(10, 10, 11, 0.98);
+        backdrop-filter: blur(20px);
+        z-index: 100;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+    
+    .mobile-menu.open {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+/* Pricing card hover */
+.pricing-card {
+    transition: all 0.3s ease;
+}
+
+.pricing-card:hover {
+    transform: translateY(-8px);
+}
+
+/* Security diagram animation */
+.security-flow {
+    animation: pulse 2s infinite;
+}
+
+/* Loading states */
+.skeleton {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.05) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Focus states for accessibility */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid #00D4AA;
+    outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
